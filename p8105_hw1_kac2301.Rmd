@@ -34,7 +34,7 @@ ggsave("flipper_bill_scatter.pdf", plot = flipper_bill_scatter)
 
 ## Problem 2 
 
-```{r}
+```{r, warning = FALSE}
 
 p2_df = tibble(
   vec_norm_samp = rnorm(n = 10), 
@@ -45,7 +45,13 @@ p2_df = tibble(
                         "small", "medium", "large", 
                         "small"))
 )
+
 p2_df
+
+avg_vec_norm_samp <- mean(p2_df$vec_norm_samp)
+avg_vec_positive <- mean(p2_df$vec_positive)
+avg_vec_chars <- mean(p2_df$vec_chars)
+avg_vec_factor <- mean(p2_df$vec_factor)
 
 ```
 

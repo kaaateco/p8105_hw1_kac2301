@@ -14,6 +14,8 @@ library(ggplot2)
 
 ```{r}
 
+# Loading in data and taking the average flipper length
+
 data("penguins", package = "palmerpenguins")
 avg_flip_length <-mean(pull(penguins, flipper_length_mm), na.rm = TRUE)
 
@@ -21,7 +23,10 @@ avg_flip_length <-mean(pull(penguins, flipper_length_mm), na.rm = TRUE)
 
 The "penguins" dataset describes the characteristics of 344 sampled penguins from 3 different species (Adelie, Gentoo, and Chinstrap) and several islands. There are 344 rows (each representing a penguin) and 8 columns. Several of the important variables are penguin species, which island they were found on, body mass (grams), and sex. The mean flipper length is 200.9152mm. 
 
+
 ```{r}
+
+# Creating the bill length vs. flipper length scatterplot
 
 flipper_bill_scatter <- ggplot(penguins, aes(x = bill_length_mm, 
                      y = flipper_length_mm, 
@@ -36,6 +41,8 @@ ggsave("flipper_bill_scatter.pdf", plot = flipper_bill_scatter)
 
 ```{r, warning = FALSE}
 
+# Creating the dataframe
+
 p2_df = tibble(
   vec_norm_samp = rnorm(n = 10), 
   vec_positive = vec_norm_samp > 0,
@@ -48,6 +55,8 @@ p2_df = tibble(
 
 p2_df
 
+# Trying to take the average of each column
+
 avg_vec_norm_samp <- mean(pull(p2_df, vec_norm_samp))
 avg_vec_positive <- mean(pull(p2_df, vec_positive))
 avg_vec_chars <- mean(pull(p2_df, vec_chars))
@@ -58,6 +67,8 @@ avg_vec_factor <- mean(pull(p2_df, vec_factor))
 I am able to take the mean of "vec_norm_samp" and "vec_positive", but not my character or factor vectors.
 
 ```{r, warning = FALSE}
+
+# Trying to convert vectors using as.numeric()
 
 num_vec_positive <- as.numeric(pull(p2_df, vec_positive))
 num_vec_chars <- as.numeric(pull(p2_df, vec_chars))

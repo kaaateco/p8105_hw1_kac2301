@@ -15,7 +15,7 @@ library(ggplot2)
 ```{r}
 
 data("penguins", package = "palmerpenguins")
-avg_flip_length <-mean(penguins$flipper_length_mm, na.rm = TRUE)
+avg_flip_length <-mean(pull(penguins, flipper_length_mm), na.rm = TRUE)
 
 ```
 
@@ -48,10 +48,10 @@ p2_df = tibble(
 
 p2_df
 
-avg_vec_norm_samp <- mean(p2_df$vec_norm_samp)
-avg_vec_positive <- mean(p2_df$vec_positive)
-avg_vec_chars <- mean(p2_df$vec_chars)
-avg_vec_factor <- mean(p2_df$vec_factor)
+avg_vec_norm_samp <- mean(pull(p2_df, vec_norm_samp))
+avg_vec_positive <- mean(pull(p2_df, vec_positive))
+avg_vec_chars <- mean(pull(p2_df, vec_chars))
+avg_vec_factor <- mean(pull(p2_df, vec_factor))
 
 ```
 
@@ -59,9 +59,9 @@ I am able to take the mean of "vec_norm_samp" and "vec_positive", but not my cha
 
 ```{r, warning = FALSE}
 
-num_vec_positive <- as.numeric(p2_df$vec_positive)
-num_vec_chars <- as.numeric(p2_df$vec_chars)
-num_vec_factor <- as.numeric(p2_df$vec_factor)
+num_vec_positive <- as.numeric(pull(p2_df, vec_positive))
+num_vec_chars <- as.numeric(pull(p2_df, vec_chars))
+num_vec_factor <- as.numeric(pull(p2_df, vec_factor))
 
 ```
 
